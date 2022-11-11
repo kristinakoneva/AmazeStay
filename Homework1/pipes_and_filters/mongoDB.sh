@@ -1,0 +1,1 @@
+mongoimport --db amazeStay -c hotels --file "hotels_filtered.geojson" --jsonArray
