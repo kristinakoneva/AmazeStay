@@ -23,7 +23,8 @@ public class DataHolder {
                         "The only hotel located just 2 kilometers away from the arrivals and departure terminals of Skopje International Airport, " +
                         "Mirror Hotel offers 27 rooms & 4 suites, 1Fine, Wine & Dine restaurant and a pool bar. The new modern design of " +
                         "Hotel Mirror combined with upscale service, satisfies even the most eclectic guest. " +
-                        "We were especially careful to implement 4-star international standards within our story, therefore providing pleasurable experience."));
+                        "We were especially careful to implement 4-star international standards within our story, therefore providing pleasurable experience.",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330897648.jpg?k=605526780dfaa094ae83ece58fdaf2dec2f8fcd2ca4a283262420cbd7cf3bd47&o=&hp=1"));
         hotels.add(new Hotel(1L, 41.9984102F, 21.3924091F, "OK Hotel", "http://www.okhotel.mk/",
                 "St. Londonska No.19, 1000 Skopje", "+389 2 3067 067","contact@okhotel.mk",
                 "OK Hotel is a modern, uniquely furnished hotel, located in a quiet area of Skopje, 2.8 km from the city center. " +
@@ -35,13 +36,15 @@ public class DataHolder {
                         "The hotel offers 24- hour reception service, laundry and dry cleaning facilities, luggage storage and video-surveillance." +
                         " Room service and packed lunches are available upon request. The hotel conference room has a capacity of 30-45 persons; " +
                         "the room is air - conditioned and equipped with an LCD projector, TV set, flip-chart tables and other technical equipment " +
-                        "for lectures and presentations, available upon request."));
+                        "for lectures and presentations, available upon request.",
+                "https://macedonian-hotels.mk/images/hotels/skopje/ok-hotel/ok-hotel1355934961.jpg"));
 
 
         hotels.add(new Hotel(2L,41.0666434F, 20.8009009F, "Granit","http://www.hotelgranit.com.mk,",
                 "Sv. Stefan BB 6000 Ohrid • Macedonia", "+389 46207100","reservation@hotelgranit.com.mk",
                 "Hotel Granit is located on the shores of Lake Ohrid, in the locality St. Stefan, 5 km from the center of Ohrid and 12km from Ohrid’s airport. " +
-                        "Hotel Granit is a four star modern hotel. It has a residential room, restaurant, cafe-bar, large terraces and its own sandy beach"));
+                        "Hotel Granit is a four star modern hotel. It has a residential room, restaurant, cafe-bar, large terraces and its own sandy beach",
+                "https://hotelgranit.com.mk/wp-content/uploads/2022/04/hotelgranit-1.jpg"));
 
         hotels.add(new Hotel(3L, 41.0678423F, 20.8016787F, "Prestol","http://www.hotelprestol.com",
                 "-","+389 46277858", "-",
@@ -56,7 +59,8 @@ public class DataHolder {
                         "with breathtaking views of the lake and mountains. We have recently renovated the hotel rooms, " +
                         "the restaurant/function room and now have an outdoor eating area alongside the pools including a jaccuzi. " +
                         "Our elegant atmosphere will make you feel welcome whether it is for a day or a week. We will make your stay comfortable " +
-                        "in our modern style hotel for whatever reason you choose Hotel Prestol."));
+                        "in our modern style hotel for whatever reason you choose Hotel Prestol.",
+                "https://cf.bstatic.com/xdata/images/hotel/max500/71256629.jpg?k=dce4f9d0e74246832b2f740092ad66c441b2e176878927b273fd2602fb6985ee&o=&hp=1"));
 
         hotels.add(new Hotel(4L, 41.1405889F, 22.5048372F, "Holiday Han", "https://holiday-han.hellomacedonia.com/en/",
                 "Marsal Tito 110, Gevgelija, North Macedonia", "+389 34 611 593", "holidayhan@yahoo.com",
@@ -66,12 +70,14 @@ public class DataHolder {
                         "\n" +
                         "Each room is provided with a laptop-size safe, a cupboard and ironing facilities. Holiday Han Hotel offers rooms with city views. A shared bathroom features a bath, a shower and towels for your comfortable stay.\n" +
                         "\n" +
-                        "Holiday Han Hotel features free WiFi throughout the property."
+                        "Holiday Han Hotel features free WiFi throughout the property.",
+                "https://www.letsbookhotel.com/img/max300/217/21775760.jpg"
                 ));
 
         hotels.add(new Hotel(5L,41.169856F, 20.710435F, "Vila ENHALON", "https://www.facebook.com/Enhalon",
                 "Ezerski Lozja 86, Struga, Republic of Macedonia","070243534","enhalon@gmail.com",
-                "Relaxing traditional family hotel by the lakeshore. WELCOME at our cosy home!"));
+                "Relaxing traditional family hotel by the lakeshore. WELCOME at our cosy home!",
+                "https://lh3.googleusercontent.com/p/AF1QipMlg3oKwBEJOSjQGmyB2JRGGCrY447Y6Hy7pQYq=s1600-w400"));
 
 
 

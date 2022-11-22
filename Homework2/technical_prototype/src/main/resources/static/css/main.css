@@ -1,14 +1,80 @@
-/*FOOTER*/
+/* FOOTER */
+
 footer{
     display: block;
     width: 100%;
-    bottom: 0;
-    /*background-color: black;*/
     text-align: center;
+    position: fixed;
+    bottom: 0;
 }
 #footer {
     display: block;
     text-align: center;
     color: white;
-    margin-top: 10px;
+    margin-top: auto;
 }
+
+
+/* HOTELS PAGE */
+
+.hotels-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.box {
+    width: 300px;
+    height: 400px;
+    border-radius: 20%;
+    border: 5px solid black;
+    margin: 50px 0;
+}
+.box-hotel-photo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+}
+.box p {
+    text-align: center;
+    color: #285767;
+    font-weight: bold;
+    font-size: 25px;
+}
+.box hr {
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin: 10px 25px;
+}
+button:hover {
+    background-color: #454545;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+button a:visited {
+    text-decoration: none;
+    color: white;
+}
+.btn-read-more {
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 70px;
+    border-radius: 25%;
+    font-size:20px;
+    display: block;
+    margin: 40px auto;
+    border: none;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
