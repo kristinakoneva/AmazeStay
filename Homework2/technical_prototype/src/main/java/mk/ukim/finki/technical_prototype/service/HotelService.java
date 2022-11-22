@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface HotelService {
     List<Hotel> listAllHotels();
+
     Hotel findHotelById(Long hotelId);
-    Hotel findHotelByStringId(String hotelId);
 }

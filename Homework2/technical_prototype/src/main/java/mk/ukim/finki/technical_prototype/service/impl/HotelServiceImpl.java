@@ -24,9 +24,4 @@ public class HotelServiceImpl implements HotelService {
     public Hotel findHotelById(Long hotelId) {
         return hotelRepository.findById(hotelId);
     }
-
-    @Override
-    public Hotel findHotelByStringId(String hotelId) {
-        return hotelRepository.findByStringId(hotelId);
-    }
 }

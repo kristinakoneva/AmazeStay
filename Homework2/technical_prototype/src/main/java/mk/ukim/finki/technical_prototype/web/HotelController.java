@@ -18,15 +18,15 @@ public class HotelController {
     }
 
     @GetMapping
-    public String getHotelsPage(Model model){
-        model.addAttribute("hotels",hotelService.listAllHotels());
+    public String getHotelsPage(Model model) {
+        model.addAttribute("hotels", hotelService.listAllHotels());
         model.addAttribute("bodyContent", "hotels_page");
         return "master_template.html";
     }
 
     @GetMapping("/{hotelId}")
-    public String getHotelDetailsPage(@PathVariable Long hotelId, Model model){
-        model.addAttribute("hotel",hotelService.findHotelById(hotelId));
+    public String getHotelDetailsPage(@PathVariable Long hotelId, Model model) {
+        model.addAttribute("hotel", hotelService.findHotelById(hotelId));
         model.addAttribute("bodyContent", "hotel_details_page");
         return "master_template.html";
     }

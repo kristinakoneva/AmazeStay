@@ -14,29 +14,36 @@
             Website:
         </div>
         <a th:href="${hotel.getWebsite()}" target=”_blank”>
-        <div th:text="${hotel.getWebsite()}">
-        </div></a><br>
+            <div th:text="${hotel.getWebsite()}">
+            </div>
+        </a><br>
         <div class="font-weight-bold">
             Telephone Number:
         </div>
         <div th:text="${hotel.getPhoneNumber()}">
-        </div><br>
+        </div>
+        <br>
         <div class="font-weight-bold">
             Address:
         </div>
         <div th:text="${hotel.getAddress()}">
-        </div><br>
+        </div>
+        <br>
         <div class="font-weight-bold">
             Email:
         </div>
         <div th:text="${hotel.getEmail()}">
-        </div><br>
-        <a th:href="${hotel.getBookingLink()}" target="_blank"><button class="btn-read-more" style="width: 100%; border-radius: 0">MAKE A RESERVATION</button></a>
+        </div>
+        <br>
+        <a th:href="${hotel.getBookingLink()}" target="_blank">
+            <button class="btn-read-more" style="width: 100%; border-radius: 0">MAKE A RESERVATION</button>
+        </a>
     </div>
 </div>
 <h4 style="text-align: center; margin-top: 20px">Find us on the map!</h4>
 <hr>
 <div style="margin: auto; width: 100%; text-align: center">
-    <iframe th:src="@{'https://maps.google.com/maps?q={lat},{lng}&t=&z=15&ie=UTF8&iwloc=&output=embed' (lat=${hotel.getLatitude()},lng=${hotel.getLongitude()})}" height="400px" style="width: 70%;">
+    <iframe th:src="@{'https://maps.google.com/maps?q={lat},{lng}&t=&z=15&ie=UTF8&iwloc=&output=embed' (lat=${hotel.getLatitude()},lng=${hotel.getLongitude()})}"
+            height="400px" style="width: 70%;">
     </iframe>
 </div>

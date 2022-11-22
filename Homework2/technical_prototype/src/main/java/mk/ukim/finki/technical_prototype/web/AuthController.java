@@ -17,13 +17,13 @@ Since this is just a technical prototype, it is not needed yet.
 public class AuthController {
 
     @GetMapping("/login")
-    public String getLoginPage(Model model){
+    public String getLoginPage(Model model) {
         model.addAttribute("bodyContent", "login_page");
         return "master_template.html";
     }
 
     @GetMapping("/register")
-    public String getRegisterPage(Model model){
+    public String getRegisterPage(Model model) {
         model.addAttribute("bodyContent", "register_page");
         return "master_template.html";
     }
