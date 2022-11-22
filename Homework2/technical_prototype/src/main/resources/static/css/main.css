@@ -79,6 +79,7 @@ a:hover{
 }
 
 /* HOTEL DETAILS PAGE */
+
 .container-hotel-details{
     display: flex;
     justify-content: space-evenly;
@@ -92,3 +93,37 @@ a:hover{
 .hotel-details-text{
     width: 50%;
 }
+
+/* HOME PAGE */
+
+.container-home{
+    margin-top: 0;
+    width: 100%;
+    height: 1000px;
+    display: block;
+    position: relative;
+}
+.container-home::after{
+    content: "";
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background: url("https://images.unsplash.com/photo-1517840901100-8179e982acb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80") no-repeat;
+    background-size: 100%;
+}
+.btn-book-now{
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 70px;
+    border-radius: 25%;
+    font-size:20px;
+    display: block;
+    border: none;
+    font-weight: bold;
+}
+
