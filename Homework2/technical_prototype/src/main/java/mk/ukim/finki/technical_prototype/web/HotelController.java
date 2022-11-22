@@ -24,7 +24,7 @@ public class HotelController {
         return "master_template.html";
     }
 
-    @GetMapping("/hotels/{hotelId}")
+    @GetMapping("/{hotelId}")
     public String getHotelDetailsPage(@PathVariable Long hotelId, Model model){
         model.addAttribute("hotel",hotelService.findHotelById(hotelId));
         model.addAttribute("bodyContent", "hotel_details_page");

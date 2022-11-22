@@ -14,8 +14,11 @@ public class Hotel {
     private String email;
     private String description;
     private String imagePath;
+    private String bookingLink;
 
-    public Hotel(Long id, float latitude, float longitude, String name, String website, String address, String phoneNumber, String email, String description, String imagePath) {
+    public Hotel(Long id, float latitude, float longitude,
+                 String name, String website, String address, String phoneNumber,
+                 String email, String description, String imagePath, String bookingLink) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -26,5 +29,6 @@ public class Hotel {
         this.email = email;
         this.description = description;
         this.imagePath = imagePath;
+        this.bookingLink = bookingLink;
     }
 }

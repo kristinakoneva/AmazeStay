@@ -1,6 +1,6 @@
 <section class="jumbotron text-center">
     <div class="container">
-        <h3 class="jumbotron-heading">Hotels</h3>
+        <h2 class="jumbotron-heading">Hotels</h2>
     </div>
 </section>
 <div class="container" xmlns:th="http://www.thymeleaf.org">
@@ -10,7 +10,7 @@
                 <img class="box-hotel-photo" th:src="${hotel.getImagePath()}" height="402" width="512" alt="hotel_picture"/>
                 <p th:text="${hotel.getName()}"></p>
                 <hr>
-                <a th:href="@{'/hotels/{hotelId}' (id=${hotel.getId()})}"><button class="btn-read-more">Read More</button></a>
+                <a th:href="@{'/hotels/{hotelId}' (hotelId=${hotel.getId()})}"><button class="btn-read-more">Read More</button></a>
             </div>
         </div>
     </section>

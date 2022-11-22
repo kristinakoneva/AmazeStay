@@ -78,3 +78,17 @@ a:hover{
     text-decoration: none;
 }
 
+/* HOTEL DETAILS PAGE */
+.container-hotel-details{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 50px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.hotel-details-image{
+
+}
+.hotel-details-text{
+    width: 50%;
+}
