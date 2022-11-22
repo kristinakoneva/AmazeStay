@@ -2,6 +2,7 @@ package mk.ukim.finki.technical_prototype.web;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,12 +17,14 @@ Since this is just a technical prototype, it is not needed yet.
 public class AuthController {
 
     @GetMapping("/login")
-    public String getLoginPage(){
-        return "login_page.html";
+    public String getLoginPage(Model model){
+        model.addAttribute("bodyContent", "login_page");
+        return "master_template.html";
     }
 
-    @GetMapping("/login")
-    public String getRegisterPage(){
-        return "register_page.html";
+    @GetMapping("/register")
+    public String getRegisterPage(Model model){
+        model.addAttribute("bodyContent", "register_page");
+        return "master_template.html";
     }
 }

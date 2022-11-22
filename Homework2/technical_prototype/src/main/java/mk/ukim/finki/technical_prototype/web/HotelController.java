@@ -20,12 +20,14 @@ public class HotelController {
     @GetMapping
     public String getHotelsPage(Model model){
         model.addAttribute("hotels",hotelService.listAllHotels());
-        return "hotels_page.html";
+        model.addAttribute("bodyContent", "hotels_page");
+        return "master_template.html";
     }
 
     @GetMapping("/hotels/{hotelId}")
     public String getHotelDetailsPage(@PathVariable Long hotelId, Model model){
         model.addAttribute("hotel",hotelService.findHotelById(hotelId));
-        return "hotel_details_page.html";
+        model.addAttribute("bodyContent", "hotel_details_page");
+        return "master_template.html";
     }
 }

@@ -1,0 +1,14 @@
+/*FOOTER*/
+footer{
+    display: block;
+    width: 100%;
+    bottom: 0;
+    /*background-color: black;*/
+    text-align: center;
+}
+#footer {
+    display: block;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
