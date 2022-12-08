@@ -1,14 +1,14 @@
 <section class="jumbotron text-center">
     <div class="container">
-        <h2 class="jumbotron-heading" th:text="${hotel.getName()}"></h2>
+        <h2 class="jumbotron-heading" style="font-size: 3rem;" th:text="${hotel.getName()}"></h2>
     </div>
 </section>
 <div class="container-hotel-details" xmlns:th="http://www.thymeleaf.org">
-    <div class="text-dark hotel-details-image">
+    <div class="text-dark hotel-details-image" style="height: 675px;">
         <img th:src="${hotel.getImagePath()}" alt="hotel_image" height="500" width="700">
     </div>
-    <div class="justify-content-end hotel-details-text">
-        <p class="text-body text-justify" th:text="${hotel.getDescription()}">
+    <div class="justify-content-end hotel-details-text" style="padding: 40px; line-height:1.7; ">
+        <p class="text-body text-justify" th:text="${hotel.getDescription()}" style="font-size:17px">
         </p>
         <div class="font-weight-bold">
             Website:
