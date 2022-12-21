@@ -1,0 +1,27 @@
+package mk.ukim.finki.amaze_stay.service.impl;
+
+import mk.ukim.finki.amaze_stay.model.Hotel;
+import mk.ukim.finki.amaze_stay.repository.inmem.InMemoryHotelRepository;
+import mk.ukim.finki.amaze_stay.service.HotelService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class HotelServiceImpl implements HotelService {
+    public final InMemoryHotelRepository hotelRepository;
+
+    public HotelServiceImpl(InMemoryHotelRepository hotelRepository) {
+        this.hotelRepository = hotelRepository;
+    }
+
+    @Override
+    public List<Hotel> listAllHotels() {
+        return hotelRepository.listAllHotels();
+    }
+
+    @Override
+    public Hotel findHotelById(Long hotelId) {
+        return hotelRepository.findById(hotelId);
+    }
+}
