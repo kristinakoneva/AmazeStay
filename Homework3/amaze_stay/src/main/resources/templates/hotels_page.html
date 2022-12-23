@@ -1,6 +1,12 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h2 class="jumbotron-heading" style="font-size: 3rem;">Hotels</h2>
+
+        <a th:href="@{'/hotels/add-form'}"
+           class="btn btn-sm btn-info add-hotel">
+            <i class="fa fa-trash">Add New Hotel</i>
+        </a>
+
     </div>
 </section>
 <div class="container" xmlns:th="http://www.thymeleaf.org">
@@ -14,6 +20,19 @@
                 <a th:href="@{'/hotels/{hotelId}' (hotelId=${hotel.getId()})}">
                     <button class="btn-read-more">Read More</button>
                 </a>
+
+                <td class="text-right">
+                    <a th:href="@{'/hotels/delete/{id}' (id=${hotel.getId()})}"
+                       class="btn btn-sm btn-danger delete-hotel">
+                        <i class="fa fa-trash">Delete</i>
+                    </a>
+
+                    <a th:href="@{'/hotels/edit-form/{id}' (id=${hotel.getId()})}"
+                       class="btn btn-sm btn-info edit-hotel">
+                        <i class="fa fa-trash">Edit</i>
+                    </a>
+                </td>
+
             </div>
         </div>
     </section>

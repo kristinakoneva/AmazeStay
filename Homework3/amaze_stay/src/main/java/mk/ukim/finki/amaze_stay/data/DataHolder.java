@@ -13,6 +13,7 @@ import java.util.List;
 public class DataHolder {
     public static List<Hotel> hotels = new ArrayList<>();
 
+    /*
     @PostConstruct
     public void init() {
         hotels.add(new Hotel(0L, 41.9390026F, 21.6199181F, "Mirror", "http://www.hotelmirror.mk/",
@@ -86,4 +87,5 @@ public class DataHolder {
 
 
     }
+     */
 }
