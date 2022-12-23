@@ -12,5 +12,6 @@ public interface HotelRepository extends MongoRepository<Hotel, ObjectId> {
     void deleteById(ObjectId id);
     Optional<Hotel> findByName(String name);
     Hotel findHotelById(ObjectId id);
+
 }
 
