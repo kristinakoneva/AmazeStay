@@ -24,6 +24,7 @@ public class HotelController{
     //5. delete hotel
     //6. save hotel   X
     //7. search
+    //8. sort
 
     //1.
     @GetMapping
@@ -96,6 +97,14 @@ public class HotelController{
             hotels = hotelService.listAll();//exception
         }
         model.addAttribute("hotels", hotels);
+        model.addAttribute("bodyContent", "hotels_page");
+        return "master_template";
+    }
+
+    //8.
+    @GetMapping("/sort")
+    public String getHotelsSorted(Model model){
+        model.addAttribute("hotels", hotelService.sortAscendingAlphabetic());
         model.addAttribute("bodyContent", "hotels_page");
         return "master_template";
     }
