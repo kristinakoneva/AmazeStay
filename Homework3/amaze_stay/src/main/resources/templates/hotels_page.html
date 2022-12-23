@@ -6,6 +6,15 @@
            class="btn btn-sm btn-info add-hotel">
             <i class="fa fa-trash">Add New Hotel</i>
         </a>
+        <div class="search-bar">
+            <form th:action="@{'/hotels/search'}" th:method="POST">
+                <input type="text"
+                       placeholder="Search..."
+                       name="keyword"
+                       th:value="${keyword}">
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
     </div>
 </section>
