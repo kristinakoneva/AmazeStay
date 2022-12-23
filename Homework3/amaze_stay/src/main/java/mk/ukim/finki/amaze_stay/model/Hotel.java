@@ -1,10 +1,15 @@
 package mk.ukim.finki.amaze_stay.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Document(collection = "Hotels")
 public class Hotel {
-    private Long id;
+    @Id
+    private ObjectId id;
     private float latitude;
     private float longitude;
     private String name;
@@ -16,10 +21,10 @@ public class Hotel {
     private String imagePath;
     private String bookingLink;
 
-    public Hotel(Long id, float latitude, float longitude,
+    public Hotel(float latitude, float longitude,
                  String name, String website, String address, String phoneNumber,
                  String email, String description, String imagePath, String bookingLink) {
-        this.id = id;
+        this.id = new ObjectId();
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
@@ -30,5 +35,9 @@ public class Hotel {
         this.description = description;
         this.imagePath = imagePath;
         this.bookingLink = bookingLink;
+    }
+
+    public Hotel(){
+
     }
 }
