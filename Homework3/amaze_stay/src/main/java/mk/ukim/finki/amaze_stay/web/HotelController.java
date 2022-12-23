@@ -23,6 +23,7 @@ public class HotelController{
     //4. edit hotel     X
     //5. delete hotel
     //6. save hotel   X
+    //7. search
 
     //1.
     @GetMapping
@@ -86,4 +87,17 @@ public class HotelController{
         this.hotelService.deleteHotelById(hotelId);
         return "redirect:/hotels";
     }
+
+    //7.
+    @PostMapping("/search")
+    public String getHotelsBySearching(String keyword, Model model) {
+        List<Hotel> hotels = hotelService.findHotelsByName(keyword);
+        if (hotels.size() == 0) {
+            hotels = hotelService.listAll();//exception
+        }
+        model.addAttribute("hotels", hotels);
+        model.addAttribute("bodyContent", "hotels_page");
+        return "master_template";
+    }
+
 }
