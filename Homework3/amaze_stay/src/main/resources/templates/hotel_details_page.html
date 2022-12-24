@@ -54,7 +54,7 @@
         <p th:text="${comm.getComment()}"></p>
         <p th:text="${comm.getRating()}"></p>
     </div>
-    <a th:href="@{'/hotels/add-comment-form'}">
+    <a th:href="@{'/hotels/add-comment-form/{hotelId}' (hotelId=${hotel.getId()})}">
         <button class="btn-read-more">Add comment</button>
     </a>
 </div>

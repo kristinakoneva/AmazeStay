@@ -7,6 +7,8 @@
     <div class="row">
         <div class="col-md-5">
             <form action="/hotels/add-comment" method="POST">
+                <input id="hotel" type="hidden" name="hotel" th:value="${hotelId}">
+                <input id="user" type="hidden" name="user" th:value="${userId}">
                 <div class="form-group">
                     <label for="comment">Hotel comment</label>
                     <input type="text"

@@ -1,26 +1,29 @@
 package mk.ukim.finki.amaze_stay.web;
 
-import mk.ukim.finki.amaze_stay.DTO.HotelCommentDTO;
 import mk.ukim.finki.amaze_stay.model.*;
 import mk.ukim.finki.amaze_stay.service.CommentService;
 import mk.ukim.finki.amaze_stay.service.HotelService;
+import mk.ukim.finki.amaze_stay.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/hotels")
-public class HotelController{
+public class HotelController {
     private final HotelService hotelService;
     private final CommentService commentService;
+    private final UserService userService;
 
-    public HotelController(HotelService hotelService, CommentService commentService) {
+    public HotelController(HotelService hotelService, CommentService commentService, UserService userService) {
         this.hotelService = hotelService;
         this.commentService = commentService;
+        this.userService = userService;
     }
 
     //1. get all hotels  XXX
@@ -34,7 +37,7 @@ public class HotelController{
 
     //1.
     @GetMapping
-    public String getHotelsPage(Model model){
+    public String getHotelsPage(Model model) {
         List<Hotel> hotels = this.hotelService.listAll();
         model.addAttribute("hotels", hotels);
         model.addAttribute("bodyContent", "hotels_page");
@@ -63,7 +66,7 @@ public class HotelController{
                            @RequestParam String email,
                            @RequestParam String description,
                            @RequestParam String imagePath,
-                           @RequestParam String bookingLink){
+                           @RequestParam String bookingLink) {
         if (id != null) {
             this.hotelService.edit(id, latitude, longitude, name, website, address, phoneNumber, email, description, imagePath, bookingLink);
         } else {
@@ -76,7 +79,7 @@ public class HotelController{
     //3.
     @GetMapping("/add-form")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String addHotelPage(Model model){
+    public String addHotelPage(Model model) {
         model.addAttribute("bodyContent", "add-hotel");
         return "master_template";
     }
@@ -85,7 +88,7 @@ public class HotelController{
     @GetMapping("/edit-form/{hotelId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editHotelPage(@PathVariable ObjectId hotelId,
-                                Model model){
+                                Model model) {
         Hotel hotel = this.hotelService.findHotelById(hotelId);
         model.addAttribute("hotel", hotel);
         model.addAttribute("bodyContent", "edit-hotel");
@@ -95,7 +98,7 @@ public class HotelController{
     //5.
     @GetMapping("/delete/{hotelId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String deleteHotel(@PathVariable ObjectId hotelId){
+    public String deleteHotel(@PathVariable ObjectId hotelId) {
         this.hotelService.deleteHotelById(hotelId);
         return "redirect:/hotels";
     }
@@ -114,7 +117,7 @@ public class HotelController{
 
     //8.
     @GetMapping("/sort")
-    public String getHotelsSorted(Model model){
+    public String getHotelsSorted(Model model) {
         model.addAttribute("hotels", hotelService.sortAscendingAlphabetic());
         model.addAttribute("bodyContent", "hotels_page");
         return "master_template";
@@ -123,24 +126,25 @@ public class HotelController{
 
     //Comments
     @PostMapping("/add-comment")
-    public String addComment(@RequestParam(required = false) ObjectId id,
-                             @RequestParam String comment,
-                             @RequestParam(required = false) User user,
-                             @RequestParam(required = false) Hotel hotel,
-                             @RequestParam float rating){
-        if (id != null) {
-            this.commentService.addNewComment(comment, user, hotelService.findHotelById(hotel.getId()), rating);
-        }
+    public String addComment(
+            @RequestParam String comment,
+            @RequestParam(required = false) ObjectId userId,
+            @RequestParam(required = false) ObjectId hotelId,
+            @RequestParam float rating) {
+        if (userId != null && hotelId != null)
+            this.commentService.addNewComment(comment, userService.findUserById(userId), hotelService.findHotelById(hotelId), rating);
+
         return "redirect:/hotels";
     }
-    @GetMapping("/add-comment-form")
-    public String addCommentPage(Model model){
+
+    @GetMapping("/add-comment-form/{hotelId}")
+    public String addCommentPage(@PathVariable ObjectId hotelId, Model model, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        model.addAttribute("userId", user.getId());
+        model.addAttribute("hotelId", hotelId);
         model.addAttribute("bodyContent", "add-comment");
         return "master_template";
     }
-
-
-
 
 
 }
