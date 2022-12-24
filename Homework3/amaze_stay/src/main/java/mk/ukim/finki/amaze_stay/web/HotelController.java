@@ -3,6 +3,7 @@ package mk.ukim.finki.amaze_stay.web;
 import mk.ukim.finki.amaze_stay.model.*;
 import mk.ukim.finki.amaze_stay.service.HotelService;
 import org.bson.types.ObjectId;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +68,7 @@ public class HotelController{
 
     //3.
     @GetMapping("/add-form")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addHotelPage(Model model){
         model.addAttribute("bodyContent", "add-hotel");
         return "master_template";

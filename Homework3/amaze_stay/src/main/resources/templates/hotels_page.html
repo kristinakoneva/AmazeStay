@@ -1,10 +1,12 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h2 class="jumbotron-heading" style="font-size: 3rem;">Hotels</h2>
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
         <a th:href="@{'/hotels/add-form'}"
            class="btn btn-sm btn-info add-hotel">
             <i class="fa fa-trash">Add New Hotel</i>
         </a>
+        </th:block>
         <a th:href="@{'/hotels/sort'}"
            class="btn btn-sm btn-info sort-hotel">
             <i class="fa fa-trash">Sort Hotels Alphabetically</i>
@@ -33,10 +35,12 @@
                 </a>
 
                 <td class="text-right">
+                    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{'/hotels/delete/{id}' (id=${hotel.getId()})}"
                        class="btn btn-sm btn-danger delete-hotel">
                         <i class="fa fa-trash">Delete</i>
                     </a>
+                    </th:block>
 
                     <a th:href="@{'/hotels/edit-form/{id}' (id=${hotel.getId()})}"
                        class="btn btn-sm btn-info edit-hotel">

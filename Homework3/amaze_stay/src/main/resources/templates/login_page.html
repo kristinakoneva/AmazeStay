@@ -17,9 +17,10 @@
                    required="">
         </p>
 
-        <div th:if="${hasError}">
-            <div th:text="${error}" class="text-danger"></div>
-        </div>
+<!--        <div th:if="${hasError}">-->
+<!--            <div th:text="${error}" class="text-danger"></div>-->
+<!--        </div>-->
+        <div th:text="${param.error}" class="text-danger"></div>
 
         <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
