@@ -47,3 +47,14 @@
             height="400px" style="width: 70%;">
     </iframe>
 </div>
+
+<h4 style="text-align: center; margin-top: 20px">Comments and Ratings</h4>
+<div style="margin: auto; width: 100%; text-align: center">
+    <div th:each="comm: ${comments}">
+        <p th:text="${comm.getComment()}"></p>
+        <p th:text="${comm.getRating()}"></p>
+    </div>
+    <a th:href="@{'/hotels/add-comment-form'}">
+        <button class="btn-read-more">Add comment</button>
+    </a>
+</div>
