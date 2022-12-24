@@ -1,4 +1,4 @@
-<header xmlns:th="http://www.thymeleaf.org">
+<header xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <a href="/"><img src="../logo-transparent-png.png" alt="AmazeStay logo" style=" width:90px; "></a>
@@ -19,13 +19,13 @@
                     <li class="nav-item m-auto">
                         <a class="nav-link active" href="/hotels">Hotels</a>
                     </li>
-                    <li class="nav-item m-auto">
+                    <li class="nav-item m-auto" sec:authorize="isAnonymous()">
                         <a class="nav-link active" href="/login">Login</a>
                     </li>
-                    <li class="nav-item m-auto">
+                    <li class="nav-item m-auto" sec:authorize="isAuthenticated()">
                         <a class="nav-link active" href="/logout">Logout</a>
                     </li>
-                    <li class="nav-item m-auto">
+                    <li class="nav-item m-auto" sec:authorize="isAnonymous()">
                         <a class="nav-link active" href="/register">Register</a>
                     </li>
 
