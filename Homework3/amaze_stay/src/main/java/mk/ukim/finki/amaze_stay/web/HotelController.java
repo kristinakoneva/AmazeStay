@@ -134,7 +134,7 @@ public class HotelController {
         if (userId != null && hotelId != null)
             this.commentService.addNewComment(comment, userService.findUserById(userId), hotelService.findHotelById(hotelId), rating);
 
-        return "redirect:/hotels";
+        return "redirect:/hotels/" + hotelId;
     }
 
     @GetMapping("/add-comment-form/{hotelId}")
