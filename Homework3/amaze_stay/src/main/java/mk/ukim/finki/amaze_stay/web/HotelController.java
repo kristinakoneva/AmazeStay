@@ -1,20 +1,25 @@
 package mk.ukim.finki.amaze_stay.web;
 
+import mk.ukim.finki.amaze_stay.DTO.HotelCommentDTO;
 import mk.ukim.finki.amaze_stay.model.*;
+import mk.ukim.finki.amaze_stay.service.CommentService;
 import mk.ukim.finki.amaze_stay.service.HotelService;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/hotels")
 public class HotelController{
     private final HotelService hotelService;
+    private final CommentService commentService;
 
-    public HotelController(HotelService hotelService) {
+    public HotelController(HotelService hotelService, CommentService commentService) {
         this.hotelService = hotelService;
+        this.commentService = commentService;
     }
 
     //1. get all hotels  XXX
@@ -38,7 +43,9 @@ public class HotelController{
     //2.
     @GetMapping("/{hotelId}")
     public String getHotelDetailsPage(@PathVariable ObjectId hotelId, Model model) {
+        //List<Comment> comments = this.commentService.findCommentsByHotel(hotelService.findHotelById(hotelId));
         model.addAttribute("hotel", hotelService.findHotelById(hotelId));
+        //model.addAttribute("comments", comments);
         model.addAttribute("bodyContent", "hotel_details_page");
         return "master_template.html";
     }
@@ -108,5 +115,28 @@ public class HotelController{
         model.addAttribute("bodyContent", "hotels_page");
         return "master_template";
     }
+
+
+    //Comments
+    @PostMapping("/add-comment")
+    public String addComment(@RequestParam(required = false) ObjectId id,
+                             @RequestParam String comment,
+                             @RequestParam(required = false) User user,
+                             @RequestParam(required = false) Hotel hotel,
+                             @RequestParam float rating){
+        if (id != null) {
+            this.commentService.addNewComment(comment, user, hotelService.findHotelById(hotel.getId()), rating);
+        }
+        return "redirect:/hotels";
+    }
+    @GetMapping("/add-comment-form")
+    public String addCommentPage(Model model){
+        model.addAttribute("bodyContent", "add-comment");
+        return "master_template";
+    }
+
+
+
+
 
 }
