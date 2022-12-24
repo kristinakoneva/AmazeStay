@@ -6,13 +6,13 @@
 <div class="container" xmlns:th="http://www.thymeleaf.org" style="margin-bottom: 50px">
     <div class="row">
         <div class="col-md-5">
-            <form action="/add-comment" method="POST">
+            <form action="/hotels/add-comment" method="POST">
                 <div class="form-group">
-                    <label for="description">Hotel comment</label>
+                    <label for="comment">Hotel comment</label>
                     <input type="text"
                            class="form-control"
-                           id="description"
-                           name="description"
+                           id="comment"
+                           name="comment"
                            th:value="(${comment} != null ? ${comment.getComment()} : '')"
                            required
                            placeholder="Enter comment description">
@@ -27,7 +27,7 @@
                            required
                            placeholder="Enter rating">
                 </div>
-                <button type="submit" class="btn btn-primary" href="/hotels">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
                 <a type="button" class="btn btn-primary" href="/hotels">Back</a>
             </form>
         </div>
