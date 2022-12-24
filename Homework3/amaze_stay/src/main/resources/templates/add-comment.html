@@ -1,32 +1,35 @@
-<th:block xmlns:th="http://www.thymeleaf.org">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5">
-        <form action="/add-comment" method="POST">
-          <div class="form-group">
-            <label for="description">Hotel comment</label>
-            <input type="text"
-                   class="form-control"
-                   id="description"
-                   name="description"
-                   th:value="(${comment} != null ? ${comment.getComment()} : '')"
-                   required
-                   placeholder="Enter comment description">
-          </div>
-          <div class="form-group">
-              <label for="rating">Hotel rating</label>
-              <input type="number"
-                     class="form-control"
-                     id="rating"
-                     name="rating"
-                     th:value="(${comment} != null ? ${comment.getRating()} : '')"
-                     required
-                     placeholder="Enter rating">
-            </div>
-          <button type="submit" class="btn btn-primary" href="/hotels" >Submit</button>
-          <a type="button" class="btn btn-primary" href="/hotels">Back</a>
-        </form>
-      </div>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h2 class="jumbotron-heading" style="font-size: 3rem;">Add Comment</h2>
     </div>
-  </div>
-</th:block>
+</section>
+<div class="container" xmlns:th="http://www.thymeleaf.org" style="margin-bottom: 50px">
+    <div class="row">
+        <div class="col-md-5">
+            <form action="/add-comment" method="POST">
+                <div class="form-group">
+                    <label for="description">Hotel comment</label>
+                    <input type="text"
+                           class="form-control"
+                           id="description"
+                           name="description"
+                           th:value="(${comment} != null ? ${comment.getComment()} : '')"
+                           required
+                           placeholder="Enter comment description">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Hotel rating</label>
+                    <input type="number"
+                           class="form-control"
+                           id="rating"
+                           name="rating"
+                           th:value="(${comment} != null ? ${comment.getRating()} : '')"
+                           required
+                           placeholder="Enter rating">
+                </div>
+                <button type="submit" class="btn btn-primary" href="/hotels">Submit</button>
+                <a type="button" class="btn btn-primary" href="/hotels">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
