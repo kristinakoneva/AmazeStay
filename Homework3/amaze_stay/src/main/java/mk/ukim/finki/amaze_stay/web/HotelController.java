@@ -3,6 +3,7 @@ package mk.ukim.finki.amaze_stay.web;
 import mk.ukim.finki.amaze_stay.model.*;
 import mk.ukim.finki.amaze_stay.service.HotelService;
 import org.bson.types.ObjectId;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +68,7 @@ public class HotelController{
 
     //3.
     @GetMapping("/add-form")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addHotelPage(Model model){
         model.addAttribute("bodyContent", "add-hotel");
         return "master_template";
@@ -74,6 +76,7 @@ public class HotelController{
 
     //4.
     @GetMapping("/edit-form/{hotelId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editHotelPage(@PathVariable ObjectId hotelId,
                                 Model model){
         Hotel hotel = this.hotelService.findHotelById(hotelId);
@@ -84,6 +87,7 @@ public class HotelController{
 
     //5.
     @GetMapping("/delete/{hotelId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteHotel(@PathVariable ObjectId hotelId){
         this.hotelService.deleteHotelById(hotelId);
         return "redirect:/hotels";

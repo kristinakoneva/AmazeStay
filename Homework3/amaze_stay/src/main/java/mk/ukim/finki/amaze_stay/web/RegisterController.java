@@ -1,8 +1,10 @@
 package mk.ukim.finki.amaze_stay.web;
 
+import mk.ukim.finki.amaze_stay.model.Role;
 import mk.ukim.finki.amaze_stay.model.exceptions.InvalidArgumentsException;
 import mk.ukim.finki.amaze_stay.model.exceptions.PasswordsDoNotMatchException;
 import mk.ukim.finki.amaze_stay.service.AuthService;
+import mk.ukim.finki.amaze_stay.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +18,11 @@ public class RegisterController {
 
     private final AuthService authService;
 
-    public RegisterController(AuthService authService) {
+    private final UserService userService;
+
+    public RegisterController(AuthService authService, UserService userService) {
         this.authService = authService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -26,7 +31,8 @@ public class RegisterController {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
-        return "register_page";
+        model.addAttribute("bodyContent","register_page");
+        return "master_template";
     }
 
     @PostMapping
@@ -34,9 +40,10 @@ public class RegisterController {
                            @RequestParam String password,
                            @RequestParam String repeatedPassword,
                            @RequestParam String name,
-                           @RequestParam String surname) {
+                           @RequestParam String surname,
+                           @RequestParam Role role) {
         try{
-            this.authService.register(username, password, repeatedPassword, name, surname);
+            this.userService.register(username, password, repeatedPassword, name, surname, role);
             return "redirect:/login";
         } catch (InvalidArgumentsException | PasswordsDoNotMatchException exception) {
             return "redirect:/register?error=" + exception.getMessage();
