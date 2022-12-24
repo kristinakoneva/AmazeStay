@@ -47,9 +47,9 @@ public class HotelController {
     //2.
     @GetMapping("/{hotelId}")
     public String getHotelDetailsPage(@PathVariable ObjectId hotelId, Model model) {
-        //List<Comment> comments = this.commentService.findCommentsByHotel(hotelService.findHotelById(hotelId));
+        List<Comment> comments = this.commentService.findCommentsByHotel(hotelService.findHotelById(hotelId));
         model.addAttribute("hotel", hotelService.findHotelById(hotelId));
-        //model.addAttribute("comments", comments);
+        model.addAttribute("comments", comments);
         model.addAttribute("bodyContent", "hotel_details_page");
         return "master_template.html";
     }
