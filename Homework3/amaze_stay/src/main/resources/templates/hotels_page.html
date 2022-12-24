@@ -34,7 +34,7 @@
                     <button class="btn-read-more">Read More</button>
                 </a>
 
-                <td class="text-right">
+                <div style="text-align: center">
                     <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{'/hotels/delete/{id}' (id=${hotel.getId()})}"
                        class="btn btn-sm btn-danger delete-hotel">
@@ -47,7 +47,7 @@
                         <i class="fa fa-trash">Edit</i>
                     </a>
                     </th:block>
-                </td>
+                </div>
 
             </div>
         </div>

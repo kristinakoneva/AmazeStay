@@ -7,6 +7,7 @@ import mk.ukim.finki.amaze_stay.model.exceptions.PasswordsDoNotMatchException;
 import mk.ukim.finki.amaze_stay.model.exceptions.UsernameAlreadyExistsException;
 import mk.ukim.finki.amaze_stay.repository.mongorep.UserRepository;
 import mk.ukim.finki.amaze_stay.service.UserService;
+import org.bson.types.ObjectId;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,6 +40,11 @@ public class UserServiceImpl implements UserService {
             throw new UsernameAlreadyExistsException(username);
         User user = new User(username,passwordEncoder.encode(password),name,surname,userRole);
         return userRepository.save(user);
+    }
+
+    @Override
+    public User findUserById(ObjectId id) {
+        return userRepository.findUserById(id);
     }
 
 }

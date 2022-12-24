@@ -49,12 +49,14 @@
 </div>
 
 <h4 style="text-align: center; margin-top: 20px">Comments and Ratings</h4>
-<div style="margin: auto; width: 100%; text-align: center">
-    <div th:each="comm: ${comments}">
-        <p th:text="${comm.getComment()}"></p>
-        <p th:text="${comm.getRating()}"></p>
+<hr>
+<div style="margin: auto; width: 70%">
+    <div th:each="comm: ${comments}" style="margin-bottom: 10px; background-color: #D3D3D3; border-radius: 10px; padding: 10px">
+        <p style="margin-left: 20px"><span style="font-weight: bold">Author: </span><span th:text="${comm.getUser().getName()}"></span> <span th:text="${comm.getUser().getSurname()}"></span> </p>
+        <p style="margin-left: 20px"><span style="font-weight: bold">Rating: </span><span th:text="${comm.getRating()}"></span></p>
+        <p style="margin-left: 20px"><span style="font-weight: bold">Comment: </span><q th:text="${comm.getComment()}"></q></p>
     </div>
-    <a th:href="@{'/hotels/add-comment-form'}">
+    <a th:href="@{'/hotels/add-comment-form/{hotelId}' (hotelId=${hotel.getId()})}">
         <button class="btn-read-more">Add comment</button>
     </a>
 </div>
