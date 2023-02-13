@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-/*
-The login and register logic will be implemented in the next assignments.
-Since this is just a technical prototype, it is not needed yet.
- */
 
 @Controller
 @RequestMapping("/auth")
