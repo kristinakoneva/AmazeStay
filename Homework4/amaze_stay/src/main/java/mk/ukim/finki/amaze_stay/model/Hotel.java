@@ -1,12 +1,14 @@
 package mk.ukim.finki.amaze_stay.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "Hotels")
+@NoArgsConstructor
 public class Hotel {
     @Id
     private ObjectId id;
@@ -37,7 +39,4 @@ public class Hotel {
         this.bookingLink = bookingLink;
     }
 
-    public Hotel(){
-
-    }
 }

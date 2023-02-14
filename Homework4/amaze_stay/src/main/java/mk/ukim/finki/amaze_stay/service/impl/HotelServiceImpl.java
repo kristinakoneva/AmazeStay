@@ -1,7 +1,6 @@
 package mk.ukim.finki.amaze_stay.service.impl;
 
 import mk.ukim.finki.amaze_stay.model.Hotel;
-import mk.ukim.finki.amaze_stay.repository.inmem.InMemoryHotelRepository;
 import mk.ukim.finki.amaze_stay.repository.mongorep.HotelRepository;
 import mk.ukim.finki.amaze_stay.service.HotelService;
 import org.bson.types.ObjectId;
