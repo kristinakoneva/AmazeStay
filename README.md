@@ -7,6 +7,12 @@
 <li>Kristina Koneva 201513 </li>
 </ul>
 
+</br>
+
+**Production environment:** amazestay.eastus.azurecontainer.io
+
+**Testing environment:** amaze-stay-test-01.gpg5cfbrccgje5ah.eastus.azurecontainer.io
+
 ## Introduction
 The purpose of this document is to give a brief introduction about the web application AmazeStay which will be used for listing hotels available for accommodation located in Macedonia.
 
@@ -17,6 +23,5 @@ In order to show all of the available places in the area, AmazeStay will use nav
 Filtering and sorting functionalities will be implemented for better user experience and once the user makes their choice (they choose the hotel where they would like to stay), they will be redirected to the appropriate page on Booking.com to finalize their reservation.
 
 Our aim is to make the booking accommodation process quicker, more convenient and extremely user-friendly by implementing a web application which is maintainable, scalable and reliable.
-
 
 
