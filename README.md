@@ -9,9 +9,9 @@
 
 </br>
 
-**Production environment:** amazestay.eastus.azurecontainer.io
+**Production environment:** http://amazestay.eastus.azurecontainer.io/
 
-**Testing environment:** amaze-stay-test-01.gpg5cfbrccgje5ah.eastus.azurecontainer.io
+**Testing environment:** http://amaze-stay-test-01.gpg5cfbrccgje5ah.eastus.azurecontainer.io/
 
 ## Introduction
 The purpose of this document is to give a brief introduction about the web application AmazeStay which will be used for listing hotels available for accommodation located in Macedonia.
