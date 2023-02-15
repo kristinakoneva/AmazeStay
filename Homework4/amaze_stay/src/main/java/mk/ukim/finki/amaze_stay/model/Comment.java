@@ -1,6 +1,7 @@
 package mk.ukim.finki.amaze_stay.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "hotel_comments")
+@NoArgsConstructor
 public class Comment {
 
     @Id
@@ -20,9 +22,6 @@ public class Comment {
     private User user;
     private Hotel hotel;
     private float rating;
-
-    public Comment() {
-    }
 
     public Comment(String comment, User user, Hotel hotel, float rating) {
         this._id = new ObjectId();

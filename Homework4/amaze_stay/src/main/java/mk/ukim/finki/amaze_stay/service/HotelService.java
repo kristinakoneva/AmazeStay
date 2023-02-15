@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface HotelService {
-    //List<Hotel> listAllHotels();
-    //Hotel findHotelById(Long hotelId);
 
     Hotel findHotelById(ObjectId id);
 
@@ -20,7 +18,6 @@ public interface HotelService {
 
     void deleteHotelById(ObjectId id);
 
-    //List<Hotel> sortDescendingByStars();
     List<Hotel> sortAscendingAlphabetic();
     Optional<Hotel> findHotelByName(String name);
     Hotel edit(ObjectId id, float latitude, float longitude, String name, String website, String address, String phoneNumber, String email, String description, String imagePath, String bookingLink);

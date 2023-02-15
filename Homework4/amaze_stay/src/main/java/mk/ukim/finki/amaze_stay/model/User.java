@@ -1,6 +1,7 @@
 package mk.ukim.finki.amaze_stay.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +12,7 @@ import java.util.Collections;
 
 @Data
 @Document(collection = "hotel_user")
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -39,8 +41,6 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
-    public User() {
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
